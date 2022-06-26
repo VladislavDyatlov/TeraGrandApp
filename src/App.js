@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { Index } from './component/Index/Index';
+import {
+  Routes,
+  Route,
+} from "react-router-dom";
+import { Auntification } from './component/Auntification/Auntification';
+import { AdminPanel } from './component/Auntification/AdminPanel/AdminPanel';
+import { AlertState } from './UseContext/Alert/AlertState';
+import { Alerts } from './UseContext/Alert/Alert';
+import { Posts } from './component/Posts/Posts';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <AlertState>
+        <Alerts />
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/auth" element={<Auntification />} />
+        <Route path="/dasboard/*" element={<AdminPanel />} />
+        <Route path="/posts/:id" element={<Posts />} />
+      </Routes>        
+      </AlertState>
+
     </div>
   );
 }

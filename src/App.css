@@ -1,5 +1,5 @@
-.App {
-  text-align: center;
+.app {
+  font-family: 'Pacifico', cursive;
 }
 
 .App-logo {
@@ -7,10 +7,20 @@
   pointer-events: none;
 }
 
+html::-webkit-scrollbar {
+  display: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+.call{
+  float: right;
+  position:fixed;
+  cursor: pointer;
+  text-align: top;
 }
 
 .App-header {

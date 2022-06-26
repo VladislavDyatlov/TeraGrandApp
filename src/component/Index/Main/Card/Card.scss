@@ -1,0 +1,47 @@
+.container{
+    margin-bottom: 80px;
+&__title{
+    text-align: center;
+}
+&__card{
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: 0.5s;
+} 
+&__cards{
+    margin: 20px;
+    transition: 0.5s;
+} 
+&__cards:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+&__hr{
+    border-top: 1px solid rgba(128, 128, 128, 0.459);
+} 
+&__img{
+   transition: 0.5s;
+}
+&__img:hover{
+    transform: scale(0.8);
+    opacity: 0.8;
+    box-shadow: 3px 3px rgba(168, 168, 168, 0.122);
+    transition: 0.5s;
+} 
+}
+
+@media(max-width: 700px){
+    .container{
+        margin: 0 auto;
+        &__card{
+            display: block;
+            width: 90%;
+            margin: 0 auto;
+        }
+        &__cards{
+            margin: 0 auto;
+            margin-bottom: 50px;
+        }
+    }
+}
