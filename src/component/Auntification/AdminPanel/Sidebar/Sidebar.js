@@ -12,9 +12,9 @@ import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { Link } from "react-router-dom";
 
-export const Sidebar = () => {
+export const Sidebar = ({color, setCollor}) => {
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${color ? "active" : ""}`}>
             <div className="top">
           <span className="logo">TeraGrand</span>
       </div>
@@ -27,12 +27,6 @@ export const Sidebar = () => {
             <span>Админ панель</span>
           </li>
           <p className="title">Пользователи</p>
-          <Link to="/dasboard/user" style={{ textDecoration: "none" }}>
-            <li>
-              <PersonOutlineIcon className="icon" />
-              <span>Номера</span>
-            </li>
-          </Link>
           <Link to="/dasboard/post" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
@@ -85,9 +79,11 @@ export const Sidebar = () => {
       <div className="bottom">
         <div
           className="colorOption"
+          onClick={() => setCollor(false)}
         ></div>
         <div
           className="colorOption"
+          onClick={() => setCollor(true)}
         ></div>
       </div>
     </div>

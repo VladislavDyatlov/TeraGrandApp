@@ -1,50 +1,67 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { Link } from 'react-router-dom';
 import './Navbar.scss'
 
 export function Navbar(){
+
+  const [active, setActive] = useState(false)
+ 
     return (
-      <header className="header" data-aos="flip-down">
+      <header className={`header`} data-aos="flip-down">
         <div className="header__container">
           <div className="header__header-nav">
-            <a href="" className="header__logo">
+            <Link to="/" className={`header__${active ? "remove" : "logo"}`}>
               <span className="header__logos">Tera</span>
               <span className="header__loge">Grand</span>
-            </a>
+            </Link>
             <nav className="header__nav">
-              <ul className="header__nav-list">
+              <ul className={`header__${active ? 'open' : 'nav-list'}`}>
                 <li className="header__nav-item">
-                  <a href="" className="header__link">
-                    Главная
-                  </a>
+                  <Link to="/gallaria" className="header__link">
+                    Галерея
+                  </Link>
                 </li>
                 <li className="header__nav-item">
-                  <a href="" className="header__link">
-                    Запчасти
-                  </a>
-                </li> 
-                <li className="header__nav-item">
-                  <a href="" className="header__link">
+                <Link to="/price" className="header__link">
                     Цена
-                  </a>
+                  </Link>
                 </li>
                 <li className="header__nav-item">
-                  <a href="" className="header__link">
+                <Link to="/cargo" className="header__link">
                     Грузоперевозки
-                  </a>
+                  </Link>
                 </li>
                 <li className="header__nav-item">
-                  <a href="" className="header__link">
-                    Диллерам
-                  </a>
+                <Link to="/dealer" className="header__link">
+                    Дилерам
+                  </Link>
                 </li>
                 <li className="header__nav-item">
-                  <a href="" className="header__link">
+                <Link to="/story" className="header__link">
                     Статьи
-                  </a>
+                  </Link>
                 </li>
               </ul>
-              <div className="header__photo">
-                <img src="https://colinjonesattorney.com/wp-content/uploads/2018/10/hamburger-menu-grey.png" width="60" height="40" /> 
+              <div
+                className="header__photo"
+              >
+                {active
+                ?
+                <img
+                  src="https://portal-systems.ru/img/colseic.png"
+                  width="40"
+                  height="40"
+                  onClick={() => setActive(!active)}
+                />
+                :
+                <img
+                  src=" "
+                  width="60"
+                  height="40"
+                  onClick={() => setActive(!active)}
+                />                
+                }
+
               </div>
             </nav>
             <a href="#" className="header__phone">

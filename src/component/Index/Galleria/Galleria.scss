@@ -1,0 +1,13 @@
+.image::-webkit-scrollbar {
+    display: none;
+  }
+
+.gallery{
+  display: flex;
+}
+
+@media(max-width: 768px){
+  .images{
+    display: none;
+  }
+}

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {db} from '../../../../../firebase'
 import {doc, collection , onSnapshot, addDoc} from "firebase/firestore";
@@ -12,10 +12,11 @@ export const Coment = () =>{
     const prodId = params.id
     const document = doc(db, "Comment", `${prodId}`)
 
+    useEffect(() =>{
     onSnapshot(document, (doc) => {
         setInfo({...doc._document.data.value.mapValue.fields})
     })
-
+    }, [])
 
     return(
         <div>

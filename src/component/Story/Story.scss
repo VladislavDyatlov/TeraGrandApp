@@ -1,0 +1,96 @@
+.link {
+    text-decoration: none;
+    color: black;
+    transition: 1s;
+}
+
+.link:hover {
+    color: green;
+    transition: 1s;
+}
+
+.paginations {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    column-gap: 5px;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+.paginations .page-nums {
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: 1s;
+}
+
+.paginations .page-nums:hover {
+    background-color: rgb(37, 179, 37);
+    color: white;
+    transition: 1s;
+}
+
+.get-posts {
+    &__search {
+        position: absolute;
+        left: 0;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+        margin-top: 10px;
+        background-color: white;
+        width: 100%;
+        box-shadow: 2px 2px 2px 2px rgba(199, 199, 199, 0.4);
+        max-height: 240px;
+        overflow: auto;
+        height: auto;
+        z-index: 100;
+    }
+    &__root {
+        animation: 1s linear 0s normal none infinite running rot;
+        -webkit-animation: 1s linear 0s normal none infinite running rot;
+        width: 100px;
+        @keyframes rot {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        @-webkit-keyframes rot {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    }
+    &__li {
+        padding: 10px;
+        list-style: none;
+        transition: 0.5s;
+    }
+    &__li:hover {
+        background-color: grey;
+        transition: 0.5s;
+    }
+}
+
+@media(max-width: 900px) {
+    .get-posts {
+        &__container {
+            margin-left: 10px;
+            width: 100%;
+        }
+        &__block {
+            display: none;
+        }
+        &__blocks {
+            display: none;
+        }
+    }
+}

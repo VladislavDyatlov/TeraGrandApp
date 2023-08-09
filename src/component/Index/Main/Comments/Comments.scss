@@ -1,0 +1,78 @@
+.commentes {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 100px 0px 100px 0;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 100px;
+    margin: 0 auto;
+    &__container {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        height: 100%;
+        input {
+            width: 66%;
+            padding: 2%;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        select {
+            padding: 2%;
+            width: 70%;
+            border-radius: 10px;
+        }
+        textarea {
+            resize: none;
+            width: 69%;
+            padding: 3px;
+            font-size: 14px;
+            border-radius: 10px;
+            height: 200px;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 10px;
+            border-radius: 100px;
+            text-align: center;
+            background: radial-gradient(40% 50%, #FAECD5, #CAE4D8);
+            font-size: 14px;
+            cursor: pointer;
+            color: black;
+            width: 150px;
+            height: 50px;
+            transition: 1s;
+        }
+    }
+    &__img {
+        width: 50%;
+        height: 100%;
+        border-radius: 30px;
+        align-items: center;
+        justify-content: center;
+        img {
+            width: 80%;
+            height: 80%;
+            border-radius: 20px;
+        }
+    }
+}
+
+.color {
+    background-color: rgb(73, 76, 218);
+    margin-top: 50px;
+}
+
+@media(max-width: 880px) {
+    .commentes {
+        display: block;
+        &__img {
+            display: none;
+        }
+        &__container {
+            width: 100%;
+        }
+    }
+}

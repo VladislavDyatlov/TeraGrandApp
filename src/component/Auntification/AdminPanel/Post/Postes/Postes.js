@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import {useParams} from "react-router-dom";
@@ -20,9 +20,11 @@ export const Postes = () =>{
 
     const document = doc(db, "Posts", `${prodId}`)
 
-    onSnapshot(document, (doc) => {
+    useEffect(() =>{
+      onSnapshot(document, (doc) => {
         setInfo({...doc._document.data.value.mapValue.fields})
     })
+    }, [])
 
 const upDate = (title, description,comment,img) =>{
     updateDoc(document, {

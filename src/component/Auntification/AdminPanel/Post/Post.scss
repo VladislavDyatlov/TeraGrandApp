@@ -1,28 +1,35 @@
-.post{
-    &__container{
+.post {
+    transition: 1s;
+    &__container {
         display: flex;
         column-gap: 20px;
-        input{
+        input {
             width: 450px;
             padding: 9px;
         }
     }
-    &__containers{
+    &__containers {
         display: flex;
         column-gap: 20px;
         margin-top: 25px;
-        input{
+        input {
             width: 1080px;
             padding: 9px;
         }
     }
-    textarea{
-        width: 89%;
+    textarea {
+        width: 92%;
         margin-top: 25px;
         height: 300px;
     }
 }
 
-a{
+a {
     text-decoration: none;
+}
+
+.post.active {
+    background-color: #333;
+    color: white;
+    transition: 1s;
 }

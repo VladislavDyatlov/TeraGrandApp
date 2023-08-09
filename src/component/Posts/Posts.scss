@@ -1,7 +1,9 @@
-.get-posts{
+.get-posts {
+    width: 100%;
     margin: 0 auto;
+    margin-bottom: 40px;
     display: flex;
-    &__title{
+    &__title {
         text-align: center;
         margin-bottom: 25px;
         font-size: 40px;
@@ -9,72 +11,71 @@
         margin-top: 30px;
         margin-bottom: 30px;
     }
-    &__container{
+    &__container {
         width: 70%;
         box-shadow: 7px 10px 4px 10px rgba(128, 128, 128, 0.475);
         border-radius: 50px;
         margin: 0 auto;
     }
-
-    &__post{
+    &__post {
         width: 70%;
         box-shadow: 7px 10px 4px 10px rgba(128, 128, 128, 0.475);
         border-radius: 50px;
-        margin: 0 auto; 
+        margin: 0 auto;
         margin-top: 50px;
         text-align: center;
-
-        textarea{
+        textarea {
+            border-radius: 10px;
+            resize: none;
+            box-shadow: 2px 2px 5px lightgray;
             width: 78%;
+            border: 1px solid grey;
             margin-left: 18px;
             height: 250px;
             margin-bottom: 30px;
-        }   
+        }
     }
-
-    &__input{
+    &__input {
         margin: 0 auto;
         text-align: center;
-
-        input{
+        input {
+            box-shadow: 2px 2px 5px lightgray;
+            border-radius: 5px;
+            border: 1px solid grey;
             margin: 20px;
             padding: 8px;
             width: 60%;
         }
     }
-
-    &__comment{
+    &__comment {
         width: 70%;
         box-shadow: 7px 10px 4px 10px rgba(128, 128, 128, 0.475);
         border-radius: 50px;
-        margin: 0 auto; 
+        margin: 0 auto;
         margin-top: 50px;
     }
-
-    &__comments{
-        display: flex; 
+    &__comments {
+        display: flex;
         vertical-align: middle;
         align-items: center;
         column-gap: 40px;
         margin-left: 40px;
         margin-top: 20px;
     }
-
-    &__date{
+    &__date {
         width: 70px;
         text-align: center;
         align-items: center;
         vertical-align: 20px;
-        height: 40px;
+        height: 30px;
         background-color: rgb(130, 33, 130);
         color: white;
         position: relative;
         border-radius: 10px;
-        margin-top: -25px;
+        margin-top: -15px;
         margin-left: 20px;
     }
-
-    &__img{
+    &__img {
         width: 100%;
         height: 450px;
         background-size: cover;
@@ -82,8 +83,7 @@
         border-top-left-radius: 50px;
         border-top-right-radius: 50px;
     }
-
-    &__description{
+    &__description {
         margin-left: 20px;
         font-weight: 500px;
         font-size: 40px;
@@ -91,40 +91,80 @@
         margin-bottom: 30px;
         margin-top: 30px;
     }
-
-    &__text{
+    &__text {
         line-height: 35px;
-        margin-left:20px;
+        margin-left: 20px;
     }
-
-    &__containers{
+    &__containers {
         margin-right: 50px;
     }
-
-    &__block{
+    &__block {
         width: 100%;
+        position: relative;
         box-shadow: 2px 2px 2px 2px rgba(128, 128, 128, 0.277);
         border-radius: 15px;
+        text-align: center;
         margin-bottom: 30px;
-        button{
+        button {
             text-align: center;
             margin: 0 auto;
             margin-top: 15px;
             width: 100%;
             border-radius: 10px;
         }
-        input{
+        input {
             padding: 5px;
+            width: 200px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
         }
     }
-
-    &__blocks{
-        width: 100%;
+    &__blocks {
+        width: 200px;
         border-radius: 15px;
         box-shadow: 2px 2px 2px 2px rgba(128, 128, 128, 0.277);
-        h3{
+        h4 {
+            margin-left: 7px;
+        }
+        h3 {
             text-align: center;
         }
     }
 }
 
+@media(max-width: 900px) {
+    .get-posts {
+        width: 100%;
+        &__container {
+            margin-left: 10px;
+            width: 100%;
+        }
+        &__block {
+            display: none;
+        }
+        &__blocks {
+            display: none;
+        }
+        &__post {
+            width: 100%;
+            margin-left: 10px;
+        }
+        &__comment {
+            width: 100%;
+            margin-left: 10px;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .get-posts {
+        &__input {
+            button {
+                width: 65%;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+.guase{
+    width: 100vh;
+    max-width: 600px;
+    text-align: center;
+    margin: 0 auto;
+
+    &__container{ 
+        display: flex;
+        column-gap: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    &__logo{
+        box-shadow:  2px 5px 2px 5px rgba(128, 128, 128, 0.142);
+        width: 130px;
+        height: 130px;
+        border-radius: 100%;
+        text-align: center;
+
+        img{
+            margin-top: 25%;
+        }
+    }
+    &__betwen{
+        display: flex;
+        column-gap: 30px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 1200px){
+    .guase{
+        margin-top: 604px;
+    }
+}
+
+@media (max-width: 600px){
+    .guase{
+        max-width: 300px;
+        &__container{
+            display: block;
+        }
+        &__betwen{
+            margin-bottom: 30px;
+            column-gap: 30px;
+        }
+        &__logo{
+            margin-top: 0 auto;
+        }
+    }
+}

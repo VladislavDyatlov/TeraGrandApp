@@ -1,0 +1,29 @@
+.modal {
+    z-index: 10000000000000000;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.584);
+    position: fixed;
+    overflow-x: auto;
+    top: 0;
+    left: -100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    &__content {
+        padding: 20px;
+        border-radius: 20px;
+        width: 400px;
+        background-color: rgb(254, 254, 254);
+    }
+    &__text {
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+}
+
+.modal.active {
+    left: 0%;
+    transition: 0.5s;
+}

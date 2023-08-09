@@ -1,8 +1,10 @@
 .sidebar {
+  transition: 1s;
     flex: 1;
     border-right: 0.5px solid rgb(230, 227, 227);
     min-height: 100vh;
     background-color: white;
+    color: black;
   
     .top {
       height: 50px;
@@ -34,7 +36,6 @@
         .title {
           font-size: 10px;
           font-weight: bold;
-          color: black;
           margin-top: 15px;
           margin-bottom: 5px;
         }
@@ -58,7 +59,6 @@
           span{
               font-size: 13px;
               font-weight: 600;
-              color: black;
               margin-left: 10px;
           }
         }
@@ -90,3 +90,18 @@
         }
     }
   }
+
+  .sidebar a{
+    color: black;
+  }
+
+.sidebar.active{
+  background-color: #333;
+  color: white;
+  transition: 1s;
+}
+
+.sidebar.active a{
+  color: white;
+}
+

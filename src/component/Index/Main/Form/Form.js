@@ -1,80 +1,92 @@
-import React, {useState, useContext} from "react";
-import TextField from '@mui/material/TextField';
-import './Form.scss'
-import {db} from '../../../../firebase'
-import { addDoc, collection } from "firebase/firestore";
+import React, { useState, useContext } from "react";
+import TextField from "@mui/material/TextField";
+import "./Form.scss";
 import { AlertConstext } from "../../../../UseContext/Alert/AlertContext";
 
+export function Form() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const alert = useContext(AlertConstext);
 
-export function Form(){
+  const setCollection = async (name, phone) => {
 
-  const [name, setName] = useState('')
-  const [phone, setPhone] = useState('')
-  const alert = useContext(AlertConstext)
+    const TOKEN = "6119024977:AAH-fxkBnFCRoL0tRKNrPFal0fsmim7k5Fk";
+    const CHAT_ID = "-1001952624254";
+    const URL_API = `https://api.telegram.org/bot${TOKEN}/sendmessage`;
 
-  const setCollection = async (name, phone) =>{
-    await addDoc(collection(db, "Users"), {
-      Name: name,
-      Number: phone,
-      Date: new Date()
-    })
-    .then(() => {alert.show("Ваши данные успешно отправлены", "success")})
-    .catch(() => {alert.show("Что-то пошло не так. Возможна ошибка сервера", "error")})
-  }
+    let message = `<b>Заявка с сайта!</b>\n`;
+    message += `<b>Отправитель: </b> ${name}\n`;
+    message += `<b>Номер телефона: </b> ${phone}\n`;
 
-    return (
-      <div className="container">
-        <div className="container__row">
-          <div className="container__text">
-            <h3 className="container__text--title" data-aos="fade-right">
-              Start your journey to a better life with online practical courses
-            </h3>
-            <div className="container__photo" data-aos="fade-up">
-              <img
-                src="https://sc02.alicdn.com/kf/U3453988dbd9f41db9e9fb0a5dea19409v/142030525/U3453988dbd9f41db9e9fb0a5dea19409v.png"
-                width="35"
-                height="35"
-                className="container__photos"
-              />
-              <p>
-                <strong>Professional Trainers</strong> Lorem ipsum dolor sit
-                amet, consectetur adipisicing elit. Sint ipsa voluptatibus.
-              </p>
-            </div>
-            <div className="container__photo" data-aos="fade-up">
-              <img
-                src="https://sc02.alicdn.com/kf/U3453988dbd9f41db9e9fb0a5dea19409v/142030525/U3453988dbd9f41db9e9fb0a5dea19409v.png"
-                width="35"
-                height="35"
-                className="container__photos"
-              />
-              <p>
-                <strong>Professional Trainers</strong> Lorem ipsum dolor sit
-                amet, consectetur adipisicing elit. Sint ipsa voluptatibus.
-              </p>
-            </div>
-            <div className="container__photo" data-aos="fade-up">
-              <img
-                src="https://sc02.alicdn.com/kf/U3453988dbd9f41db9e9fb0a5dea19409v/142030525/U3453988dbd9f41db9e9fb0a5dea19409v.png"
-                width="35"
-                height="35"
-                className="container__photos"
-                onClick={() => alert.show("Please", "error")}
-              />
-              <p>
-                <strong>Professional Trainers</strong> Lorem ipsum dolor sit
-                amet, consectetur adipisicing elit. Sint ipsa voluptatibus.
-              </p>
-            </div>
+    const data = {
+      chat_id: CHAT_ID,
+      parse_mode: "html",
+      text: message,
+    };
+
+    await fetch(URL_API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(data),
+    }).then((res) => res.json());
+  };
+
+  return (
+    <div className="container">
+      <div className="container__row">
+        <div className="container__text">
+          <h3 className="container__text--title" data-aos="fade-right">
+            Оставь заявку сейчас чтобы получить фитбек в течении 15 минут
+          </h3>
+          <div className="container__photo" data-aos="fade-up">
+            <img
+              src="https://sc02.alicdn.com/kf/U3453988dbd9f41db9e9fb0a5dea19409v/142030525/U3453988dbd9f41db9e9fb0a5dea19409v.png"
+              width="35"
+              height="35"
+              className="container__photos"
+            />
+            <p>
+              <strong>Не знаете с чего начать?</strong> Мы ответим на ваши
+              вопросы и поможем подобрать лучший вариант
+            </p>
           </div>
+          <div className="container__photo" data-aos="fade-up">
+            <img
+              src="https://sc02.alicdn.com/kf/U3453988dbd9f41db9e9fb0a5dea19409v/142030525/U3453988dbd9f41db9e9fb0a5dea19409v.png"
+              width="35"
+              height="35"
+              className="container__photos"
+            />
+            <p>
+              <strong>Как рассчитать стоимость?</strong> Мы ответим на ваши
+              вопросы и поможем подобрать лучший вариант
+            </p>
+          </div>
+          <div className="container__photo" data-aos="fade-up">
+            <img
+              src="https://sc02.alicdn.com/kf/U3453988dbd9f41db9e9fb0a5dea19409v/142030525/U3453988dbd9f41db9e9fb0a5dea19409v.png"
+              width="35"
+              height="35"
+              className="container__photos"
+              onClick={() => alert.show("Please", "error")}
+            />
+            <p>
+              <strong>Какую автомобиль выбрать?</strong> Мы ответим на ваши
+              вопросы и поможем подобрать лучший вариант
+            </p>
+          </div>
+        </div>
+        <form>
           <div className="container__form">
             <h3>Отправь заявку сейчас</h3>
             <TextField
               id="standard-basic"
               label="Введите ваше имя"
               variant="standard"
-              className="textfield"
-              style={{ color: "white" }}
+              className="text_mi"
+              InputLabelProps={{ className: "text_ui" }}
               data-aos="fade-left"
               onChange={(e) => setName(e.target.value)}
             />
@@ -82,13 +94,19 @@ export function Form(){
               id="standard-basic"
               label="Введите ваш номер"
               variant="standard"
-              className="textfield"
+              className="text_mi"
+              InputLabelProps={{ className: "text_ui" }}
               data-aos="fade-left"
               onChange={(e) => setPhone(e.target.value)}
             />
-            <button onClick={() => setCollection(name, phone)}>Отправить</button>
+            <div>
+              <button onClick={() => setCollection(name, phone)}>
+                Отправить
+              </button>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
-    );
+    </div>
+  );
 }

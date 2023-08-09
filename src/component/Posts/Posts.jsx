@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import './Posts.scss'
 import {useParams} from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
@@ -8,14 +8,16 @@ import {doc, collection , onSnapshot, addDoc} from "firebase/firestore";
 import Button from '@mui/material/Button'
 import {db} from '../../firebase'
 import CircularProgress from '@mui/material/CircularProgress';
+import { Navbar } from '../Index/Main/Navbar/Navbar';
+import { Footer } from '../Index/Main/Footer/Footer';
 
 export const Posts = () => {
 
     const [info, setInfo] = useState()
     const [coment, setComent] = useState()
-    const [name, setName] = useState('')
+    const [name, setName] = useState('') 
     const [comment, setComment] = useState('')
-    const [news, setNews] = useState('')
+    const [news, setNews] = useState()
     const alert = useContext(AlertConstext)
     const params = useParams()
     const prodId = params.id
@@ -36,12 +38,13 @@ export const Posts = () => {
           .catch(() => {alert.show("Что-то пошло не так. Возможна ошибка сервера", "error")})
         }
 
+        useEffect(() =>{
         onSnapshot(collection(db,"Comment"), (snapshot) =>{
           let coments = []
           snapshot.docs.forEach((doc) => {
             coments.push({...doc._document.data.value.mapValue.fields, id: doc.id})
         })
-        setComent(coments)
+        setComent(coments) 
         })
 
         onSnapshot(collection(db,"New"), (snapshot) =>{
@@ -51,10 +54,11 @@ export const Posts = () => {
         })
         setNews(newses)
         })
+        }, [])
     
-
     return (
       <>
+      <Navbar />
       {info === undefined
       ?
       <CircularProgress color="success" />
@@ -69,7 +73,7 @@ export const Posts = () => {
             style={{ backgroundImage: `url(${info.Img.stringValue})` }}
           ></div>
           <div className="get-posts__date">
-            <span className="get-posts__date--span">
+            <span className="get-posts__date--span"> 
               {info.Data.timestampValue.slice(5, 10)}
             </span>
           </div>
@@ -111,11 +115,6 @@ export const Posts = () => {
             <div>
               <input type="text" className="get-posts__input" placeholder="Поиск..." />
             </div>
-            <div>
-              <Button variant="contained" color="success">
-                Поиск
-              </Button>
-            </div>
           </div>
           <div className="get-posts__blocks">
               <h3>Новости</h3>
@@ -128,6 +127,7 @@ export const Posts = () => {
           </div>
         </div>
       </div> 
+      <Footer />
       </>
       }      
       </>

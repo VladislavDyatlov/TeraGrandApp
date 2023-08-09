@@ -1,0 +1,11 @@
+.toolpit{
+    position: fixed;
+    left: 95%;
+    top: 88%;
+}
+
+@media(max-width:1000px){
+    .toolpit{
+        display: none;
+    }
+}

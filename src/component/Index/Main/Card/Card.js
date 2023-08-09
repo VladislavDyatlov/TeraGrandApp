@@ -11,32 +11,32 @@ const CardContents = [
     {
         id: 1,
         img: "https://images.satom.ru/i3/firms/28/5479/5479246/furgon-dlya-perevozki-hleba-na-shassi-gazel-biznes-128-144-160-lotkov-evro-5_165a56be6e37820_800x600.jpg",
-        title: "Lorends",
-        text: "Lizards are a widespread group of squamate reptiles, with over6,000 species, ranging across all continents except Antarctica",
+        title: "Газель 3302",
+        text: "К заводскому обозначению ГАЗ-3302 принадлежат ГАЗели бортовые и шасси с кабиной 1,5-тонного класса грузоподъёмности. Грузовые цельнометаллические фургоны обозначаются как ГАЗ-2705.",
     },
     {
         id: 1,
         img: "https://club4x4.club/upload/iblock/bfc/bfc24595572e91e6eba422a6ab8fec25.jpg",
-        title: "Lorends",
-        text: "Lizards are a widespread group of squamate reptiles, with over6,000 species, ranging across all continents except Antarctica",
+        title: "Газель 57027",
+        text: "Газ 27057 фургон металлический Газель Бизнес металлический фургон ГАЗ 27057 7 мест 7 мест Длина фургона 1,3 м Объем грузового фургона 6 м³. С удлинненной коробкой передач и подушками безопасности",
     },
     {
         id: 1,
         img: "https://images.satom.ru/i3/firms/28/5479/5479246/bortovoy-gaz-2310-sobol-biznes-bort-2-3m-ili-3m-gruzopodemnost-do-1-1t_65505e74240d625_800x600.jpg",
-        title: "Lorends",
-        text: "Lizards are a widespread group of squamate reptiles, with over6,000 species, ranging across all continents except Antarctica",
+        title: "ГАЗель NEXT",
+        text: "NEXT c эргономичной приборной панелью, подушками безопасности, элетростеклоподъёмниками и целым рядом новшеств, а также удлинённой колёсной базой, коробкой передач.",
     },
     {
         id: 1,
         img: "https://images.satom.ru/i3/firms/28/5479/5479246/furgon-dlya-perevozki-hleba-na-shassi-gazel-biznes-128-144-160-lotkov-evro-5_165a56be6e37820_800x600.jpg",
-        title: "Lorends",
-        text: "Lizards are a widespread group of squamate reptiles, with over6,000 species, ranging across all continents except Antarctica",
+        title: "Газель 3302",
+        text: "К заводскому обозначению ГАЗ-3302 принадлежат ГАЗели бортовые и шасси с кабиной 1,5-тонного класса грузоподъёмности. Грузовые цельнометаллические фургоны обозначаются как ГАЗ-2705.",
     },
 ]
 
 export function Cards(){
     return (
-      <div className="container">
+      <div className="container" data-aos="flip-up">
         <h1 className="container__title">Наши автомобили</h1>
         <div className="container__card">
           {CardContents.map((card) => (
